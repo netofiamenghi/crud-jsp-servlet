@@ -26,6 +26,7 @@
         <a href="cadastrar-produto.jsp">Cadastro de Produto</a><br>
         <a href="cadastrar-fornecedor.jsp">Cadastro de Fornecedor</a><br>
         <a href="cadastrar-cliente.jsp">Cadastro de Cliente</a><br>
+        <a href="ListarCliente">Lista de Cliente</a><br>
         </div>
     </center>
     </body>

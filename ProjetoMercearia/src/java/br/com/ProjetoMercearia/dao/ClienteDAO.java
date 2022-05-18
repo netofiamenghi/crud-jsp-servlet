@@ -7,6 +7,7 @@ import br.com.ProjetoMercearia.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -65,7 +66,26 @@ public class ClienteDAO implements GenericDAO{
 
     @Override
     public List<Object> listar() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        List<Object> lista = new ArrayList<>();
+        try{
+            String sql = "select * from cliente";
+            stmt = this.conexao.prepareStatement(sql);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                Cliente cliente = new Cliente();
+                cliente.setCodigo(rs.getInt("codigo"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setEmail(rs.getString("email"));
+                cliente.setTelefone(rs.getString("telefone"));
+                lista.add(cliente);
+            }
+        }catch(Exception e){
+            System.out.println("Erro ao listar clienteDAO " + e.getMessage());
+        }finally{
+            ConnectionFactory.fecharConexao(rs, stmt, conexao);
+        }
+        return lista;
     }
 
     @Override
