@@ -1,19 +1,15 @@
-package br.com.ProjetoMercearia.controle;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package br.com.ProjetoMercearia.controle;
 
-import br.com.ProjetoMercearia.dao.ClienteDAO;
 import br.com.ProjetoMercearia.dao.FornecedorDAO;
 import br.com.ProjetoMercearia.dao.GenericDAO;
-import br.com.ProjetoMercearia.modelo.Fornecedor;
+import br.com.ProjetoMercearia.dao.ProdutoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,10 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Aluno
+ * @author Neto
  */
-@WebServlet(urlPatterns = {"/CadastrarFornecedor"})
-public class CadastrarFornecedor extends HttpServlet {
+@WebServlet(name = "ListarFornecedor", urlPatterns = {"/ListarFornecedor"})
+public class ListarFornecedor extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,26 +33,14 @@ public class CadastrarFornecedor extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, Exception {
-        
-        Fornecedor oFornecedor = new Fornecedor();
-        
-        oFornecedor.setEmail(request.getParameter("email"));
-        oFornecedor.setRazaoSocial(request.getParameter("razaoSocial"));
-        oFornecedor.setTelefone(request.getParameter("telefone"));
-        
-        GenericDAO dao = new FornecedorDAO();
-        
-        String mensagem = "";
-        
-        if(dao.cadastrar(oFornecedor) == true){
-            mensagem = "Fornecedor cadastrado com sucesso!";
-        }else{
-            mensagem = "Erro ao cadastrar Fornecedor!";
+            throws ServletException, IOException {
+        try{
+            GenericDAO dao = new FornecedorDAO();
+            request.setAttribute("fornecedores", dao.listar());
+            request.getRequestDispatcher("listar-fornecedor.jsp").forward(request, response);
+        }catch(Exception e){
+            System.out.println("Erro ao listar fornecedorCTR " + e.getMessage());
         }
-        
-        request.setAttribute("fornecedor", oFornecedor);
-        request.getRequestDispatcher("cadastrar-fornecedor.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -71,11 +55,7 @@ public class CadastrarFornecedor extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(CadastrarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -89,11 +69,7 @@ public class CadastrarFornecedor extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(CadastrarFornecedor.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

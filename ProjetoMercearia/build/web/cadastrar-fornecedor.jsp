@@ -32,8 +32,6 @@
         <h1>Cadastro de Fornecedor</h1>
         
         <form method="POST" action="CadastrarFornecedor">
-           <!-- Código
-            <input type="number" name="codigo"/><br>-->
             Razão Social
             <input type="text" name="razaoSocial"/><br>
             Email

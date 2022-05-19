@@ -1,9 +1,8 @@
 <%-- 
-    Document   : listar-cliente
-    Created on : 18/05/2022, 19:25:06
+    Document   : listar-fornecedor
+    Created on : 19/05/2022, 19:28:33
     Author     : Neto
 --%>
-
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,23 +13,23 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Lista de Clientes</h1>
+        <h1>Lista de Fornecedores</h1>
         
         <table border="1">
             <tr> 
                 <td>Código</td> 
-                <td>Nome</td> 
+                <td>Razão Social</td> 
                 <td>Telefone</td> 
                 <td>E-mail</td> 
             </tr>
 
             
-            <c:forEach items="${clientes}" var="cliente">
+            <c:forEach items="${fornecedores}" var="fornecedor">
                 <tr> 
-                    <td> ${cliente.codigo}  </td>    
-                    <td>${cliente.nome}</td> 
-                    <td>${cliente.telefone}</td> 
-                    <td>${cliente.email}</td>
+                    <td> ${fornecedor.codigo}  </td>    
+                    <td>${fornecedor.razaoSocial}</td> 
+                    <td>${fornecedor.telefone}</td> 
+                    <td>${fornecedor.email}</td>
                 </tr>
                 
             </c:forEach>   

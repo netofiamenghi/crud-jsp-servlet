@@ -1,7 +1,8 @@
-
 package br.com.ProjetoMercearia.dao;
 
 import br.com.ProjetoMercearia.modelo.Cliente;
+import br.com.ProjetoMercearia.modelo.Fornecedor;
+import br.com.ProjetoMercearia.modelo.Produto;
 import br.com.ProjetoMercearia.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,17 +10,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Neto
- */
-public class ClienteDAO implements GenericDAO{
+public class FornecedorDAO implements GenericDAO{
     
     private ResultSet rs;
     private Connection conexao;
     private PreparedStatement stmt;
     
-    public ClienteDAO(){
+    public FornecedorDAO(){
         try{
             conexao = ConnectionFactory.conectar();
         }catch(Exception e){
@@ -32,20 +29,20 @@ public class ClienteDAO implements GenericDAO{
         Boolean retorno = true;
         
         try{
-            String sql = " insert into cliente (nome,telefone,email)"
+            String sql = " insert into fornecedor (razaoSocial,telefone,email)"
                 + "values(?,?,?)";
-            Cliente oCliente = (Cliente) object;
+            Fornecedor oFornecedor = (Fornecedor) object;
             
             stmt = conexao.prepareStatement(sql);
             
-            stmt.setString(1, oCliente.getNome());
-            stmt.setString(2, oCliente.getTelefone());
-            stmt.setString(3, oCliente.getEmail());
+            stmt.setString(1, oFornecedor.getRazaoSocial());
+            stmt.setString(2, oFornecedor.getTelefone());
+            stmt.setString(3, oFornecedor.getEmail());
             
             stmt.execute();
             
         }catch(Exception e){
-            System.out.println("Erro ao cadastrar clienteDAO" + e.getMessage());
+            System.out.println("Erro ao cadastrar fornecedorDAO" + e.getMessage());
             retorno = false;
         }finally{
             ConnectionFactory.fecharConexao(rs, stmt, conexao);
@@ -65,22 +62,21 @@ public class ClienteDAO implements GenericDAO{
 
     @Override
     public List<Object> listar() throws Exception {
-
         List<Object> lista = new ArrayList<>();
         try{
-            String sql = "select * from cliente";
+            String sql = "select * from fornecedor";
             stmt = this.conexao.prepareStatement(sql);
             rs = stmt.executeQuery();
             while(rs.next()){
-                Cliente cliente = new Cliente();
-                cliente.setCodigo(rs.getInt("codigo"));
-                cliente.setNome(rs.getString("nome"));
-                cliente.setEmail(rs.getString("email"));
-                cliente.setTelefone(rs.getString("telefone"));
-                lista.add(cliente);
+                Fornecedor fornecedor = new Fornecedor();
+                fornecedor.setCodigo(rs.getInt("codigo"));
+                fornecedor.setRazaoSocial(rs.getString("razaoSocial"));
+                fornecedor.setTelefone(rs.getString("telefone"));
+                fornecedor.setEmail(rs.getString("email"));
+                lista.add(fornecedor);
             }
         }catch(Exception e){
-            System.out.println("Erro ao listar clienteDAO " + e.getMessage());
+            System.out.println("Erro ao listar fornecedorDAO " + e.getMessage());
         }finally{
             ConnectionFactory.fecharConexao(rs, stmt, conexao);
         }

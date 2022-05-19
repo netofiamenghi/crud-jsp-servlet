@@ -19,6 +19,6 @@ create table cliente(
 create table fornecedor(
     codigo serial primary key,
     razaoSocial varchar(100),
-    telefone int,
+    telefone varchar(100),
     email varchar(100)
 );

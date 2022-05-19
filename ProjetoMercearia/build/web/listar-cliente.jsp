@@ -33,9 +33,7 @@
                     <td>${cliente.email}</td>
                 </tr>
                 
-            </c:forEach>
-                
-            fim laço    
+            </c:forEach>   
         </table>
     </body>
 </html>
