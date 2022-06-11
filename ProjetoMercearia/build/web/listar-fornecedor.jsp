@@ -34,5 +34,6 @@
                 
             </c:forEach>   
         </table>
+                <a href="index.jsp">Menu Principal</a>
     </body>
 </html>

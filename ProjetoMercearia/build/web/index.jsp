@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : index
     Created on : 24/03/2022, 19:50:02
     Author     : Aluno
@@ -16,7 +16,7 @@
                 width: 300px;
                 text-align: center;
             }
-           
+
         </style>
     </head>
     <body>
@@ -25,10 +25,15 @@
         <h1>Mercearia Web</h1>
         <a href="cadastrar-produto.jsp">Cadastro de Produto</a><br>
         <a href="ListarProduto">Lista de Produto</a><br>
+
         <a href="cadastrar-fornecedor.jsp">Cadastro de Fornecedor</a><br>
         <a href="ListarFornecedor">Lista de Fornecedor</a><br>
+
         <a href="cadastrar-cliente.jsp">Cadastro de Cliente</a><br>
         <a href="ListarCliente">Lista de Cliente</a><br>
+        
+        <a href="cadastrar-usuario.jsp">Cadastro de Usuário</a><br>
+        <a href="ListarUsuario">Lista de Usuário</a><br>
         </div>
     </center>
     </body>

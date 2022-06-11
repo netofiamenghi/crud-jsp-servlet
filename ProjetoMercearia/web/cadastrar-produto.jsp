@@ -33,9 +33,9 @@
         <form method="POST" action="CadastrarProduto">
             
            <!-- Código <input type="number" name="codigo"/><br> -->
-            Nome <input type="text" name="nome"/><br>
-            Valor <input type="number" name="valor"/><br>
-            Quantidade Estoque <input type="number" name="qtdEstoque"/><br><br>
+           Nome <input value="${produto.nome}" type="text" name="nome"/><br>
+            Valor <input value="${produto.valor}" type="number" name="valor"/><br>
+            Quantidade Estoque <input value="${produto.qtdEstoque}" type="number" name="qtdEstoque"/><br><br>
             <%--Deste jeito o botão fica a critério do navegador --%>
             <input type="submit"/>
             

@@ -2,7 +2,7 @@ package br.com.ProjetoMercearia.modelo;
 
 
 public class Cliente {
-    
+
     private Integer codigo;
     private String nome;
     private String telefone;
@@ -49,7 +49,7 @@ public class Cliente {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
-    
+
+
+
 }

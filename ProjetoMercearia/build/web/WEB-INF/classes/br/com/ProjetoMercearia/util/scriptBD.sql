@@ -22,3 +22,11 @@ create table fornecedor(
     telefone varchar(100),
     email varchar(100)
 );
+
+create table usuario(
+    codigo serial primary key,
+    nome varchar(100),
+    senha varchar(100),
+    data_nascimento date,
+    data_cadastro date
+);

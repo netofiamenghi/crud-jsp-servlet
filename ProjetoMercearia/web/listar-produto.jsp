@@ -14,13 +14,15 @@
     </head>
     <body>
         <h1>Lista de Produtos</h1>
-        
+        <h3>${msg}</h3>
         <table border="1">
             <tr> 
                 <td>Código</td> 
                 <td>Nome</td> 
                 <td>Qtd Estoque</td> 
                 <td>Valor</td> 
+                <td></td>
+                <td></td>
             </tr>
 
             
@@ -30,9 +32,12 @@
                     <td>${produto.nome}</td> 
                     <td>${produto.qtdEstoque}</td> 
                     <td>${produto.valor}</td>
+                    <td><a href="ExcluirProduto?codigo=${produto.codigo}">Excluir</a></td>
+                    <td><a href="CarregarProduto?codigo=${produto.codigo}">Carregar</a></td>
                 </tr>
                 
             </c:forEach>   
         </table>
+                <a href="index.jsp">Menu Principal</a>
     </body>
 </html>

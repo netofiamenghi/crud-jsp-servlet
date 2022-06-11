@@ -13,7 +13,7 @@ public interface GenericDAO {
     
     public List<Object> listar() throws Exception;
       
-    public Boolean carregar(Integer id) throws Exception;
+    public Object carregar(Integer id) throws Exception;
             
     
 }
