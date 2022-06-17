@@ -24,7 +24,7 @@ public class ConnectionFactory {
     }
     
     public static void fecharConexao(ResultSet rs, Statement stmt, Connection conn) throws Exception{
-    
+
         try{
             if(rs != null){
                 rs.close();

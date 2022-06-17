@@ -25,47 +25,42 @@ public class ProdutoDAO implements GenericDAO {
     @Override
     public Boolean cadastrar(Object object) throws Exception {
 
-        Boolean retorno = true;
-
         try {
             String sql = " insert into produto (nome,qtdEstoque,valor) values(?,?,?)";
             Produto produto = (Produto) object;
 
             stmt = conexao.prepareStatement(sql);
-
             stmt.setString(1, produto.getNome());
             stmt.setInt(2, produto.getQtdEstoque());
             stmt.setDouble(3, produto.getValor());
 
-            stmt.execute();
+            return stmt.execute();
 
         } catch (Exception e) {
             System.out.println("Erro ao cadastrar produtoDAO" + e.getMessage());
-            retorno = false;
+            return false;
         } finally {
             ConnectionFactory.fecharConexao(rs, stmt, conexao);
         }
-        return retorno;
     }
 
     @Override
     public Boolean excluir(Object object) throws Exception {
-        Boolean retorno = true;
+
         try {
             String sql = "delete from produto where codigo = ?";
             Produto produto = (Produto) object;
             stmt = this.conexao.prepareStatement(sql);
             stmt.setInt(1, produto.getCodigo());
 
-            stmt.execute();
+            return stmt.execute();
 
         } catch (Exception e) {
-            retorno = false;
             System.out.println("Erro ao excluir produtoDAO " + e.getMessage());
+            return false;
         } finally {
             ConnectionFactory.fecharConexao(rs, stmt, conexao);
         }
-        return retorno;
     }
 
     @Override
