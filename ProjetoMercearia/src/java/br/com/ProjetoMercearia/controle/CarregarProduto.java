@@ -8,7 +8,6 @@ package br.com.ProjetoMercearia.controle;
 import br.com.ProjetoMercearia.dao.GenericDAO;
 import br.com.ProjetoMercearia.dao.ProdutoDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,15 +33,12 @@ public class CarregarProduto extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try{
-           Integer codigo = Integer.parseInt(
-                   request.getParameter("codigo"));
+           Integer codigo = Integer.parseInt(request.getParameter("codigo"));
            
             GenericDAO dao = new ProdutoDAO();
             
             request.setAttribute("produto", dao.carregar(codigo));
-            
-            request.getRequestDispatcher(
-                    "cadastrar-produto.jsp").forward(request, response);
+            request.getRequestDispatcher("cadastrar-produto.jsp").forward(request, response);
            
         }catch(Exception e){
             System.out.println("Erro ao carregar produtoCTR " + e.getMessage());

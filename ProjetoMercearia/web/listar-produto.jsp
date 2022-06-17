@@ -25,19 +25,17 @@
                 <td></td>
             </tr>
 
-            
             <c:forEach items="${produtos}" var="produto">
                 <tr> 
-                    <td> ${produto.codigo}  </td>    
+                    <td>${produto.codigo}  </td>    
                     <td>${produto.nome}</td> 
                     <td>${produto.qtdEstoque}</td> 
                     <td>${produto.valor}</td>
                     <td><a href="ExcluirProduto?codigo=${produto.codigo}">Excluir</a></td>
                     <td><a href="CarregarProduto?codigo=${produto.codigo}">Carregar</a></td>
                 </tr>
-                
             </c:forEach>   
         </table>
-                <a href="index.jsp">Menu Principal</a>
+        <a href="index.jsp">Menu Principal</a>
     </body>
 </html>

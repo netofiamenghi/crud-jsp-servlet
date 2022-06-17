@@ -5,11 +5,9 @@
  */
 package br.com.ProjetoMercearia.controle;
 
-import br.com.ProjetoMercearia.dao.ClienteDAO;
 import br.com.ProjetoMercearia.dao.GenericDAO;
 import br.com.ProjetoMercearia.dao.ProdutoDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

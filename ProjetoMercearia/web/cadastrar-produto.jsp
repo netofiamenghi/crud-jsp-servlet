@@ -16,7 +16,7 @@
                 width: 200px;
                 text-align: center;
             }
-           img{
+            img{
                 width: 50px;
                 height: 50px;
             }
@@ -28,21 +28,19 @@
         </a>
     <center>
         <div>
-        <h1>Cadastro de Produto</h1>
-        
-        <form method="POST" action="CadastrarProduto">
-            
-           <!-- Código <input type="number" name="codigo"/><br> -->
-           Nome <input value="${produto.nome}" type="text" name="nome"/><br>
-            Valor <input value="${produto.valor}" type="number" name="valor"/><br>
-            Quantidade Estoque <input value="${produto.qtdEstoque}" type="number" name="qtdEstoque"/><br><br>
-            <%--Deste jeito o botão fica a critério do navegador --%>
-            <input type="submit"/>
-            
-        </form>
+            <h1>Cadastro de Produto</h1>
+
+            <form method="POST" action="CadastrarProduto">
+
+                Nome<input value="${produto.nome}" type="text" name="nome"/><br>
+                Valor <input value="${produto.valor}" type="number" name="valor"/><br>
+                Quantidade Estoque <input value="${produto.qtdEstoque}" type="number" name="qtdEstoque"/><br><br>
+                <input type="submit"/>
+
+            </form>
             <br>
-          <h4>Produto ${produto.nome} cadastrado com sucesso!</h4>
-            </div>
+            <h4>Produto ${produto.nome} cadastrado com sucesso!</h4>
+        </div>
     </center>        
-    </body>
+</body>
 </html>

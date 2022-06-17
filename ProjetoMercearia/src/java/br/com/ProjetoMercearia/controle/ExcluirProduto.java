@@ -9,7 +9,6 @@ import br.com.ProjetoMercearia.dao.GenericDAO;
 import br.com.ProjetoMercearia.dao.ProdutoDAO;
 import br.com.ProjetoMercearia.modelo.Produto;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,27 +33,22 @@ public class ExcluirProduto extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        try{
-           Integer codigo = Integer.parseInt(
-                   request.getParameter("codigo"));
-           Produto produto = new Produto();
-           produto.setCodigo(codigo);
-           GenericDAO dao = new ProdutoDAO();
-           String mensagem = "";
-           if(dao.excluir(produto)){
-               mensagem = "Produto excluído";
-           }else{
-               mensagem = "Erro ao excluir";
-           }
-           request.setAttribute("msg", mensagem);
-           request.getRequestDispatcher(
-                   "ListarProduto").forward(request, response);
-           
-        }catch(Exception e){
+
+        try {
+            Produto produto = new Produto();
+            produto.setCodigo(Integer.parseInt(request.getParameter("codigo")));
+
+            GenericDAO dao = new ProdutoDAO();
+
+            String mensagem = dao.excluir(produto) ? "Produto excluído" : "Erro ao excluir";
+
+            request.setAttribute("msg", mensagem);
+            request.getRequestDispatcher("ListarProduto").forward(request, response);
+
+        } catch (Exception e) {
             System.out.println("Erro ao excluir produtoCTR" + e.getMessage());
         }
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
