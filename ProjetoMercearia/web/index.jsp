@@ -22,7 +22,7 @@
     <body>
     <center>
         <div>
-        <h1>Mercearia Web 2.0</h1>
+        <h1>Mercearia Web 2.2</h1>
         <a href="cadastrar-produto.jsp">Cadastro de Produto</a><br>
         <a href="ListarProduto">Lista de Produto</a><br>
 
